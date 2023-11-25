@@ -6,7 +6,7 @@ apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 mkdir -p /var/www/html/
 sudo chmod -R 755 /var/www
-echo "Hello World!" > /var/www/html/index.html
+echo "Holberton School for the win!" > /var/www/html/index.html
 SERVER_CONFIG=\
 "server {
 	listen 80 default_server;
@@ -16,12 +16,15 @@ SERVER_CONFIG=\
 
         index index.html index.htm index.nginx-debian.html;
 	server_name _;
-        location / {
-                try_files \$uri \$uri/ =404;
-	}
-        rewrite ^/redirect_me(.*)$ http://www.youtube.com/ permanent;
-}"
+	location / {
+        try_files \$uri \$uri/ =404;
+    }
 
+    location /redirect_me {
+        return 301 http://www.example.com/destination_page;
+    }
+}"
+     
 echo -e "$SERVER_CONFIG" > /etc/nginx/sites-enabled/default
 
 if [ "$(pgrep 'nginx' | wc -l)" -ge 1 ]
