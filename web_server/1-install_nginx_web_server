@@ -4,7 +4,7 @@
 apt-get update
 apt-get -y install nginx
 # adding a html page
-echo "Hello World!" > /var/www/html/index.html
+echo "Holberton School for the win!" > /var/www/html/index.html
 # checking if service is running
 state=$(pgrep nginx)
 if [ -n "$state" ];
