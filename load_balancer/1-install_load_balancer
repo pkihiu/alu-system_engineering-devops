@@ -17,7 +17,7 @@ backend nginx_pool
 	balance roundrobin
 	mode tcp
 	server 5782-web-01 52.204.169.89 check
-	server 5782-web-02 52.201.245.168 check
+	server 5782-web-02 184.72.209.166 check
 "
 FRONTEND_CONFIG=\
 "
